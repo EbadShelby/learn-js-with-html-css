@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>function-practice</title>
+  </head>
+  <style>
+    .container {
+      background-color: #3f72af;
+      padding: 1em;
+      max-width: fit-content;
+      border-radius: 0.75em;
+      margin-inline: auto;
+      display: grid;
+      place-content: center;
+    }
+    h2 {
+      font-size: 1.25rem;
+      text-align: center;
+    }
+    button {
+      border: none;
+      border-radius: 100vmax;
+      padding: 0.5em 1.5em;
+      background-color: #112d4e;
+      color: #f9f7f7;
+      font-weight: 600;
+      margin-inline: auto;
+      cursor: pointer;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    button:active {
+      opacity: 0.7;
+    }
+    .buttons {
+      display: grid;
+      gap: 0.5em;
+      place-content: center;
+      background-color: #dbe2ef;
+      padding-block: 0.5em;
+      border-radius: 0.5em;
+    }
+    .header {
+      padding: 0.1em 1em;
+      color: #112d4e;
+      border-radius: 0.5em;
+      margin-bottom: 1em;
+      background-color: #dbe2ef;
+    }
+    .grid {
+      display: grid;
+      place-content: center;
+      gap: 1em;
+    }
+    @media (min-width: 300px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 600px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (min-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    @media (min-width: 1200px) {
+      .grid {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+  </style>
+  <body>
+    <div class="grid">
+      <div class="container">
+        <div class="header">
+          <h2>Greet Function</h2>
+        </div>
+        <button onclick="greet('ebad')">Greet</button>
+      </div>
+      <div class="container">
+        <div class="header">
+          <h2>Convert To Fahrenheit</h2>
+        </div>
+        <button onclick="convertToFahrenheit(25);">Convert</button>
+      </div>
+      <div class="container">
+        <div class="header">
+          <h2>Convert To Celsius</h2>
+        </div>
+        <button onclick="convertToCelsius(86);">Convert</button>
+      </div>
+      <div class="container">
+        <div class="header">
+          <h2>Convert Miles to KM</h2>
+        </div>
+        <button onclick="convertLength(50, 'miles', 'km');">Convert</button>
+      </div>
+      <div class="container">
+        <div class="header">
+          <h2>Convert KM to Miles</h2>
+        </div>
+        <button onclick="convertLength(32, 'km', 'miles');">Convert</button>
+      </div>
+      <div class="container">
+        <div class="header">
+          <h2>Convert miles to ft</h2>
+        </div>
+        <button onclick="convertLength(5, 'miles', 'ft');">Convert</button>
+      </div>
+      <div class="container">
+        <div class="header">
+          <h2>Convert km to ft</h2>
+        </div>
+        <button onclick="convertLength(5, 'km', 'ft');">Convert</button>
+      </div>
+    </div>
+
+    <script>
+      // greet function
+      function greet(name = "jake") {
+        console.log(`Hello ${name}`);
+      }
+      // convert to fahrenheit
+      function convertToFahrenheit(celsius) {
+        const fahrenheit = (celsius * 9) / 5 + 32;
+        console.log(`${celsius} celsius is ${fahrenheit} fahrenheit`);
+      }
+      // convert to Celsius
+      function convertToCelsius(fahrenheit) {
+        const celsius = ((fahrenheit - 32) * 5) / 9;
+        console.log(`${fahrenheit} fahrenheit is ${celsius} celsius`);
+      }
+      // convert length
+      function convertLength(length, from, to) {
+        if (from === "miles" && to === "km") {
+          // convert miles to km
+          const milesToKm = length * 1.6;
+          console.log(`${length} miles is ${milesToKm} km`);
+        } else if (from === "km" && to === "miles") {
+          // convert km to miles
+          const kmToMiles = length / 1.6;
+          console.log(`${length} km is ${kmToMiles} miles`);
+        } else if (from === "miles" && to === "ft") {
+          // convert miles to ft
+          const milesToFt = length * 5280;
+          console.log(`${length} miles is ${milesToFt} ft`);
+        } else if (from === "km" && to === "ft") {
+          // convert km to ft
+          const kmToFt = length * 3281;
+          console.log(`${length} km is ${kmToFt} ft`);
+        } else {
+          console.log("Invalid Unit");
+        }
+      }
+    </script>
+  </body>
+</html>
