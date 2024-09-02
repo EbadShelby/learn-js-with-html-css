@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>object practice</title>
+  </head>
+  <body>
+    <button onclick="comparePrice(product1, product2)">price</button>
+    <button onclick="isSameProduct(product1, product2)">same price</button>
+    <br /><br />
+    <button onclick="playGame('heads')">head</button>
+    <button onclick="playGame('tails')">tails</button>
+    <button
+      onclick="
+    score.wins=0,
+    score.losses=0,
+    localStorage.removeItem('score')"
+    >
+      reset score
+    </button>
+
+    <script>
+      const basketBall = {
+        product: "basketball",
+        price: 2095,
+      };
+      console.log(basketBall.product);
+      basketBall.price = basketBall.price + 500;
+      console.log(basketBall.price);
+      // =====================================================
+      const product1 = { product: "apple", price: 160 };
+      const product2 = { product: "banana", price: 180 };
+
+      function comparePrice(product1, product2) {
+        if (product1.price < product2.price) {
+          console.log(product1);
+        } else {
+          console.log(product2);
+        }
+      }
+
+      function isSameProduct(product1, product2) {
+        if (product1 === product2) {
+          console.log(true);
+        } else {
+          console.log(false);
+        }
+      }
+      // =====================================================
+      // create object to store score and convert score back to object
+      let score = JSON.parse(localStorage.getItem("score")) || {
+        wins: 0,
+        losses: 0,
+      };
+
+      function playGame(guess) {
+        // random number to flip coin
+        const randomNumber = Math.random();
+        const flipResult = randomNumber < 0.5 ? "heads" : "tails";
+
+        if (guess === flipResult) {
+          score.wins++;
+        } else {
+          score.losses++;
+        }
+        alert(
+          `guessed: ${guess}\nResult: ${flipResult}\nWins: ${score.wins}\nLosses: ${score.losses}`
+        );
+      }
+      //convert score to string and  put score in local storage
+      localStorage.setItem("score", JSON.stringify(score));
+    </script>
+  </body>
+</html>
