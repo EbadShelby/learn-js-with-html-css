@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dom exercise</title>
+  </head>
+  <body>
+    <button onclick="flipCoin()">heads</button>
+    <button onclick="flipCoin()">tails</button>
+    <p class="js-coin-result">Result:</p>
+
+    <input
+      class="js-name-input"
+      type="text"
+      placeholder="Input name"
+      onkeydown="enterKey()"
+    />
+    <button onclick="greet()">Submit</button>
+    <p class="js-greet"></p>
+
+    <br /><br />
+    <button onclick="addCart(1)">Add to Cart</button>
+    <button onclick="addCart(2)">+2</button>
+    <button onclick="addCart(3)">+3</button>
+    <button onclick="addCart(4)">+4</button>
+    <button onclick="addCart(5)">+5</button>
+    <button onclick="addCart(-1)">Remove from Cart</button>
+    <button onclick="addCart(-2)">-2</button>
+    <button onclick="addCart(-3)">-3</button>
+    <p class="js-cart">Cart Quantity: 0</p>
+    <!-- =================================== -->
+    <script>
+      let coinResult = "";
+
+      function flipCoin() {
+        let randomNumber = Math.random();
+        coinResult = randomNumber < 0.5 ? "heads" : "tails";
+        document.querySelector(
+          ".js-coin-result"
+        ).innerHTML = `Result: ${coinResult}`;
+      }
+
+      function greet() {
+        const inputElement = document.querySelector(".js-name-input");
+        let name = inputElement.value;
+        document.querySelector(".js-greet").innerHTML = `What's up ${name}`;
+      }
+      function enterKey() {
+        if (event.key === "Enter") {
+          greet();
+        }
+      }
+
+      let cartQuantity = 0;
+      function addCart(quantity) {
+        cartQuantity += quantity;
+
+        document.querySelector(
+          ".js-cart"
+        ).innerHTML = `Cart Quantity: ${cartQuantity}`;
+      }
+    </script>
+  </body>
+</html>
