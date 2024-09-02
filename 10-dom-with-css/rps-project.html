@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>booleans</title>
+    <style>
+      .container {
+        max-width: 40%;
+        color: white;
+        margin-inline: auto;
+        padding: 1em;
+        border-radius: 1em;
+        display: grid;
+        place-content: center;
+        background-color: black;
+      }
+      .buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+      }
+      .buttons button {
+        width: 2em;
+        aspect-ratio: 1;
+        font-size: 2.5rem;
+        border-radius: 100vmax;
+        background-color: black;
+        color: white;
+        border: 2px solid white;
+        cursor: pointer;
+      }
+      .reset {
+        border: none;
+        padding: 1em;
+        max-width: 100%;
+        cursor: pointer;
+        border-radius: 0.25em;
+        font-weight: 700;
+      }
+      .stats {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .js-result {
+        font-weight: 700;
+        font-size: 1.3rem;
+      }
+      .js-moves {
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Rock Paper Scissors</h1>
+      </div>
+      <div class="buttons">
+        <button onclick="playGame('Rock');">✊</button>
+        <button onclick="playGame('Paper');">🖐️</button>
+        <button onclick="playGame('Scissors')">✌️</button>
+      </div>
+      <div class="stats">
+        <p class="js-moves"></p>
+        <p class="js-result"></p>
+        <p class="js-score"></p>
+        <button
+          class="reset"
+          onclick="
+          score.wins = 0;
+          score.losses = 0;
+          score.ties = 0;
+          localStorage.removeItem('score');
+          updateScoreElement();
+          "
+        >
+          Reset Score
+        </button>
+      </div>
+    </div>
+
+    <script src="rps-project.js"></script>
+  </body>
+</html>
