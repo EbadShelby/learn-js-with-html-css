@@ -14,6 +14,11 @@
         <button onclick="playGame('Rock');">Rock🪨</button>
         <button onclick="playGame('Paper');">Paper🧻</button>
         <button onclick="playGame('Scissors')">Scissors✂️</button>
+      </div>
+      <div>
+        <p class="js-moves"></p>
+        <p class="js-result"></p>
+        <p class="js-score"></p>
         <button
           class="reset"
           onclick="
@@ -21,14 +26,11 @@
           score.losses = 0;
           score.ties = 0;
           localStorage.removeItem('score');
+          updateScoreElement();
           "
         >
           Reset Score
         </button>
-      </div>
-      <div>
-        <p></p>
-        <p class="js-score"></p>
       </div>
     </div>
 
@@ -40,10 +42,13 @@
         losses: 0,
         ties: 0,
       };
+      updateScoreElement();
 
-      document.querySelector(
-        ".js-score"
-      ).innerHTML = `Wins: ${score.wins}  Losses: ${score.losses}  Ties: ${score.ties}`;
+      function updateScoreElement() {
+        document.querySelector(
+          ".js-score"
+        ).innerHTML = `Wins: ${score.wins}  Losses: ${score.losses}  Ties: ${score.ties}`;
+      }
 
       // use random numbers to generate computer move
       function generateComputerMove() {
@@ -102,14 +107,13 @@
         }
 
         localStorage.setItem("score", JSON.stringify(score));
-        document.querySelector(
-          ".js-score"
-        ).innerHTML = `Wins: ${score.wins}  Losses: ${score.losses}  Ties: ${score.ties}`;
+        updateScoreElement();
 
-        //display the player and computer move, and result
-        alert(
-          `Player move: ${playerMove}\nComputer move: ${computerMove}\nResult: ${result}`
-        );
+        document.querySelector(".js-result").innerHTML = result;
+        document.querySelector(
+          ".js-moves"
+        ).innerHTML = `You ${playerMove} - ${computerMove} Computer`;
+
         // alert(
         //   `Player move: ${playerMove}\nComputer move: ${computerMove}\nResult: ${result}\nWins: ${score.wins}  Losses: ${score.losses}  Ties: ${score.ties}`
         // );
