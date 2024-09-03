@@ -1,0 +1,158 @@
+/* ======================================= */
+/* ========|| Custom Properties ||======== */
+/* ======================================= */
+:root {
+  --clr-primary: hsl(216, 18%, 16%);
+
+  --clr-secondary-400: hsl(217, 10%, 25%);
+  --clr-secondary-300: hsl(217, 10%, 30%);
+
+  --clr-accent: hsl(183, 100%, 35%);
+
+  --clr-neutral-100: hsl(0, 0%, 100%);
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+  --ff-accent: "Inter";
+  --ff-base: "Poppins";
+
+  --spacing-50: 4px;
+  --spacing-100: 8px;
+  --spacing-150: 12px;
+  --spacing-200: 16px;
+  --spacing-250: 20px;
+  --spacing-300: 24px;
+  --spacing-350: 28px;
+  --spacing-400: 32px;
+  --spacing-500: 40px;
+  --spacing-600: 48px;
+  --spacing-700: 60px;
+  --spacing-800: 100px;
+  --spacing-900: 160px;
+  --spacing-1000: 240px;
+}
+
+/* ======================================= */
+/* ===============|| Reset ||============= */
+/* ======================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p {
+  overflow-wrap: break-word;
+  /* max-width: 75ch; */
+  text-wrap: pretty; /*prevent alone words*/
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+/* ======================================= */
+/* ========|| General Styling ||========== */
+/* ======================================= */
+body {
+  font-family: var(--ff-base);
+  background-color: var(--clr-primary);
+}
+
+/* ======================================= */
+/* ===========|| Main Style ||============ */
+/* ======================================= */
+.calculator {
+  background-color: var(--clr-secondary-400);
+  max-width: 20em;
+  margin: 2em;
+  border-radius: 1em;
+  box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.1),
+    -5px -5px 10px var(--clr-secondary-300);
+}
+.calculator__buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 90%;
+  margin-inline: auto;
+  padding-block: 2em;
+}
+.buttons {
+  width: 3.5em;
+  aspect-ratio: 1;
+  border: none;
+  margin: 0.5em;
+  background-color: var(--clr-primary);
+  color: var(--clr-neutral-100);
+  border-radius: 100vmax;
+  box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.1),
+    -5px -5px 10px var(--clr-secondary-300);
+}
+/* =============|| Buttons ||============= */
+
+/* =============|| Inputs ||============= */
+
+/* ======================================= */
+/* ==========|| footer Style ||=========== */
+/* ======================================= */
+
+/* ======================================= */
+/* ============|| Utilities ||============ */
+/* ======================================= */
+.buttons--blue {
+  background-color: var(--clr-accent);
+  box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.1),
+    -5px -5px 10px var(--clr-secondary-300);
+}
+
+/* ======================================= */
+/* ===========|| Breakpoints ||=========== */
+/* ======================================= */
+
+/* button shadow  left-right/ down-up/ blur/ spread */
+/* box-shadow: inset 0px -2px 0px 1px rgba(0,0,0,0.4); */
