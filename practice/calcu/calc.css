@@ -111,7 +111,7 @@ body {
   background-color: var(--clr-secondary-400);
   max-width: 20em;
   margin: 2em;
-  border-radius: 1em;
+  border-radius: 0.5em;
   box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.1),
     -5px -5px 10px var(--clr-secondary-300);
 }
@@ -120,11 +120,12 @@ body {
   grid-template-columns: repeat(4, 1fr);
   max-width: 90%;
   margin-inline: auto;
-  padding-block: 2em;
+  padding-block: 0 1em;
 }
 .buttons {
   width: 3.5em;
   aspect-ratio: 1;
+  cursor: pointer;
   border: none;
   margin: 0.5em;
   background-color: var(--clr-primary);
@@ -132,6 +133,30 @@ body {
   border-radius: 100vmax;
   box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.1),
     -5px -5px 10px var(--clr-secondary-300);
+  transition: opacity 0.15s;
+}
+.buttons:hover {
+  opacity: 0.9;
+}
+.buttons:active {
+  opacity: 0.7;
+}
+
+.input-output {
+  display: grid;
+  padding-inline: 1.6em;
+  font-family: var(--ff-accent);
+  color: var(--clr-neutral-100);
+}
+.output,
+.input {
+  margin-left: auto;
+}
+.output {
+  font-size: 2em;
+}
+.input {
+  font-size: 3em;
 }
 /* =============|| Buttons ||============= */
 
@@ -148,11 +173,9 @@ body {
   background-color: var(--clr-accent);
   box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.1),
     -5px -5px 10px var(--clr-secondary-300);
+  font-weight: 500;
 }
 
 /* ======================================= */
 /* ===========|| Breakpoints ||=========== */
 /* ======================================= */
-
-/* button shadow  left-right/ down-up/ blur/ spread */
-/* box-shadow: inset 0px -2px 0px 1px rgba(0,0,0,0.4); */
