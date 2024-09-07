@@ -3,6 +3,7 @@
 /* ======================================= */
 :root {
   --clr-primary: hsl(216, 18%, 16%);
+  --clr-primary: rgb(33, 39, 48);
 
   --clr-secondary-400: hsl(217, 10%, 25%);
   --clr-secondary-300: hsl(217, 10%, 30%);
@@ -142,21 +143,15 @@ body {
   opacity: 0.7;
 }
 
-.input-output {
+.display {
   display: grid;
   padding-inline: 1.6em;
   font-family: var(--ff-accent);
   color: var(--clr-neutral-100);
 }
-.output,
-.input {
-  margin-left: auto;
-}
-.output {
-  font-size: 2em;
-}
 .input {
   font-size: 3em;
+  margin-left: auto;
 }
 /* =============|| Buttons ||============= */
 

@@ -3,38 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Calculator</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="calc.css" />
   </head>
   <body>
     <div class="calculator">
-      <div class="input-output">
-        <div class="js-output output">=0</div>
-        <div class="js-input input">0</div>
+      <div class="display">
+        <div class="js-display input">0</div>
       </div>
       <div class="calculator__buttons">
-        <button onclick="numberInput(1)" class="buttons">1</button>
-        <button onclick="numberInput(2)" class="buttons">2</button>
-        <button onclick="numberInput(3)" class="buttons">3</button>
-        <button onclick="operatorInput('+')" class="buttons buttons--blue">+</button>
-        <button onclick="numberInput(4)" class="buttons">4</button>
-        <button onclick="numberInput(5)" class="buttons">5</button>
-        <button onclick="numberInput(6)" class="buttons">6</button>
-        <button onclick="operatorInput('-')" class="buttons buttons--blue">-</button>
-        <button onclick="numberInput(7)" class="buttons">7</button>
-        <button onclick="numberInput(8)" class="buttons">8</button>
-        <button onclick="numberInput(9)" class="buttons">9</button>
-        <button onclick="operatorInput('*')" class="buttons buttons--blue">*</button>
-        <button onclick="numberInput(0)" class="buttons">0</button>
-        <button onclick="operatorInput('=')" class="buttons">.</button>
-        <button onclick="" class="buttons">=</button>
-        <button onclick="operatorInput('/')" class="buttons buttons--blue">÷</button>
+        <button onclick="numberInput('1')" class="buttons">1</button>
+        <button onclick="numberInput('2')" class="buttons">2</button>
+        <button onclick="numberInput('3')" class="buttons">3</button>
+        <button onclick="operatorInput('+')" class="buttons buttons--blue">
+          +
+        </button>
+
+        <button onclick="numberInput('4')" class="buttons">4</button>
+        <button onclick="numberInput('5')" class="buttons">5</button>
+        <button onclick="numberInput('6')" class="buttons">6</button>
+        <button onclick="operatorInput('-')" class="buttons buttons--blue">
+          -
+        </button>
+
+        <button onclick="numberInput('7')" class="buttons">7</button>
+        <button onclick="numberInput('8')" class="buttons">8</button>
+        <button onclick="numberInput('9')" class="buttons">9</button>
+        <button onclick="operatorInput('*')" class="buttons buttons--blue">
+          *
+        </button>
+
+        <button onclick="numberInput('0')" class="buttons">0</button>
+        <button onclick="numberInput('.')" class="buttons">.</button>
+        <button onclick="equals()" class="buttons">=</button>
+        <button onclick="operatorInput('/')" class="buttons buttons--blue">
+          ÷
+        </button>
         <button onclick="clearInput()" class="buttons">Clear</button>
       </div>
     </div>

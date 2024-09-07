@@ -1,78 +1,75 @@
-let currentInput = "";
-let firstInput = null;
-let secondInput = null;
+let firstNumber = "0";
+let secondNumber = null;
 let currentOperator = null;
-let resultDisplayed = false;
+let result = "0";
 
-function displayInput(input) {
-  document.querySelector(".js-input").innerHTML = input;
+function clearInput() {
+  firstNumber = "0";
+  secondNumber = null;
+  currentOperator = null;
+  updateDisplayInput();
 }
 
-function displayOutput(output) {
-  document.querySelector(".js-output").innerHTML = output;
+function updateDisplayInput() {
+  document.querySelector(".js-display").innerHTML = firstNumber;
 }
 
 function numberInput(number) {
-  if (resultDisplayed) {
-    // Start fresh after displaying a result
-    currentInput = number.toString();
-    resultDisplayed = false;
+  // Prevent multiple dots in a single number
+  if (number === "." && firstNumber.includes(".")) return;
+
+  // If the current number is "0", replace it; otherwise, append it
+  if (firstNumber === "0" || firstNumber === result) {
+    firstNumber = number;
   } else {
-    currentInput += number.toString();
+    firstNumber += number;
   }
-  displayInput(currentInput);
+  updateDisplayInput();
 }
 
 function operatorInput(operator) {
-  if (currentInput === "") return; // Prevent operator input without a number
-
-  if (firstInput === null) {
-    firstInput = parseFloat(currentInput);
-  } else if (!resultDisplayed) {
-    // If an operator is already set and user inputs a second operator, calculate intermediate result
-    secondInput = parseFloat(currentInput);
-    firstInput = performCalculation(firstInput, secondInput, currentOperator);
-    displayOutput(firstInput);
-  }
-
-  currentOperator = operator;
-  currentInput = ""; // Reset input for next number
-  displayInput(firstInput + " " + operator);
-  resultDisplayed = false;
-}
-
-function calculateResult() {
-  if (firstInput !== null && currentOperator !== null && currentInput !== "") {
-    secondInput = parseFloat(currentInput);
-    const result = performCalculation(firstInput, secondInput, currentOperator);
-    displayOutput(result);
-    firstInput = result; // Set result as the new firstInput for continued calculations
-    currentInput = ""; // Reset input for next number
-    resultDisplayed = true;
+  if (currentOperator === null) {
+    // Store the first number and operator
+    currentOperator = operator;
+    secondNumber = firstNumber;
+    firstNumber = "0"; // Reset the firstNumber for the next input
+    document.querySelector(".js-display").innerHTML =
+      secondNumber + " " + operator;
+  } else {
+    // Perform the calculation with the stored values and update
+    calculate();
+    currentOperator = operator; // Update the operator for chaining
+    secondNumber = result;
+    firstNumber = "0";
+    document.querySelector(".js-display").innerHTML =
+      secondNumber + " " + operator;
   }
 }
 
-function performCalculation(num1, num2, operator) {
-  switch (operator) {
-    case "+":
-      return num1 + num2;
-    case "-":
-      return num1 - num2;
-    case "*":
-      return num1 * num2;
-    case "/":
-      return num2 !== 0 ? num1 / num2 : "Error"; // Prevent division by zero
-    default:
-      return num2;
+function calculate() {
+  // Convert strings to numbers for mathematical operations
+  const num1 = parseFloat(secondNumber);
+  const num2 = parseFloat(firstNumber);
+
+  if (currentOperator === "+") {
+    result = (num1 + num2).toString();
+  } else if (currentOperator === "-") {
+    result = (num1 - num2).toString();
+  } else if (currentOperator === "*") {
+    result = (num1 * num2).toString();
+  } else if (currentOperator === "/") {
+    result = (num1 * num2).toString();
   }
+
+  // Display the result and reset firstNumber for next input
+  firstNumber = result;
+  updateDisplayInput();
 }
 
-function clearInput() {
-  currentInput = "";
-  firstInput = null;
-  secondInput = null;
-  currentOperator = null;
-  resultDisplayed = false;
-  displayInput("0");
-  displayOutput("0");
+function equals() {
+  if (currentOperator !== null) {
+    calculate();
+    currentOperator = null; // Reset the operator
+    secondNumber = null; // Reset the second number
+  }
 }
