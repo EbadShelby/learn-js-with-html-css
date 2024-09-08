@@ -7,10 +7,9 @@
   </head>
   <body>
     <button class="js-finish-button" onclick="handleClick()">download</button>
-    <br>
+    <br />
     <button class="add-cart" onclick="displayCart()">Add to Cart</button>
-    <div class="cart">
-    </div>
+    <div class="cart"></div>
     <button onclick="addMessage()">Add message</button>
 
     <script>
@@ -33,10 +32,13 @@
         }, 1000);
       }
       let i = 0;
-      setInterval(function() {
-        document.title = `(${i}) messages`;
-        i++;
-      }, 1000);
+      function addMessage() {
+        document.title = 'You have a messages';
+        setInterval(function () {
+          document.title = `(${i}) You have a messages`;
+          i++;
+        }, 1000);
+      }
     </script>
   </body>
 </html>
