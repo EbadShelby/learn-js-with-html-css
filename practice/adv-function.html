@@ -6,13 +6,37 @@
     <title>adv function exercise</title>
   </head>
   <body>
+    <button class="js-finish-button" onclick="handleClick()">download</button>
+    <br>
+    <button class="add-cart" onclick="displayCart()">Add to Cart</button>
+    <div class="cart">
+    </div>
+    <button onclick="addMessage()">Add message</button>
+
     <script>
       const add = function () {
         console.log(2 + 3);
       };
       add();
+      function handleClick() {
+        document.querySelector(".js-finish-button").innerHTML = "Loading";
+        setTimeout(function () {
+          document.querySelector(".js-finish-button").innerHTML = "Finished!";
+        }, 1000);
+      }
 
-      
+      function displayCart() {
+        const displayAddedCart = "<p>Added</p>";
+        document.querySelector(".cart").innerHTML = displayAddedCart;
+        setTimeout(function () {
+          document.querySelector(".cart").innerHTML = "";
+        }, 1000);
+      }
+      let i = 0;
+      setInterval(function() {
+        document.title = `(${i}) messages`;
+        i++;
+      }, 1000);
     </script>
   </body>
 </html>

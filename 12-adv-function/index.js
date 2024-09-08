@@ -26,3 +26,4 @@ console.log(typeof function1);
   console.log(value);
   console.log(index);
 });
+
