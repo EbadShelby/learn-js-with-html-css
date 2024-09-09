@@ -39,6 +39,27 @@
           i++;
         }, 1000);
       }
+
+      const multiply = (num1, num2) => console.log(num1 * num2);
+      multiply(3, 3);
+      multiply(7, 10);
+
+      function addNum(array, num) {
+        return array.map((value) => value + num);
+      }
+      console.log(addNum([1, 2], 2));
+
+      function removeEgg(foods) {
+        let eggsRemoved = 0;
+        return foods.filter((value) => {
+          if (value === "egg" && eggsRemoved < 2) {
+            eggsRemoved++;
+            return false;
+          }
+          return true;
+        });
+      }
+      console.log(removeEgg(["apple", "egg", "banana", 'egg', 'egg']));
     </script>
   </body>
 </html>

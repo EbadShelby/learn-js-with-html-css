@@ -51,3 +51,19 @@ console.log(typeof function1);
 //   console.log("click2");
 // });
 
+console.log(
+  [1, -2, 5].filter((value, index) => {
+    // if (value >= 0) {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
+  })
+);
+
+console.log(
+  [1, 1, 3].map((value, index) => {
+    return value * 2;
+  })
+);
+console.log([1, 1, 3].map((value) => value * 2));
