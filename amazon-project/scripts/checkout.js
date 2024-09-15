@@ -48,13 +48,15 @@ cart.forEach((cartItem) => {
           <div class="product-quantity">
             <span> Quantity: <span class="quantity-label js-quantity-label-${
               matchingProduct.id
-            }">${cartItem.quantity}</span> </span>
+            }">${cartItem.quantity}</span></span>
             <span class="update-quantity-link link-primary js-update-quantity-link" data-product-id="${
               matchingProduct.id
             }">
               Update
             </span>
-            <input class='quantity-input js-quantity-input'>
+            <input class='quantity-input js-quantity-input-${
+              matchingProduct.id
+            }'>
             <span class="save-quantity-link link-primary js-save-quantity-link" data-product-id="${
               matchingProduct.id
             }">Save</span>
@@ -140,7 +142,7 @@ document.querySelectorAll(".js-save-quantity-link").forEach((link) => {
   link.addEventListener("click", () => {
     const productId = link.dataset.productId;
     const newQuantity = Number(
-      document.querySelector(".js-quantity-input").value
+      document.querySelector(`.js-quantity-input-${productId}`).value
     );
 
     if (newQuantity < 0 || newQuantity >= 1000) {
